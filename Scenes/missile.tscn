@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciua535p52tml"]
+
+[ext_resource type="Texture2D" uid="uid://cet51f1t5jy3l" path="res://Assets/Main ship weapon - Projectile - Auto cannon bullet.png" id="1_8ime3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1cvu"]
+size = Vector2(8.57143, 13.2045)
+
+[node name="Missile" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2.98023e-08)
+scale = Vector2(0.75, 0.59375)
+texture = ExtResource("1_8ime3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.153846, -0.187499)
+scale = Vector2(0.897436, 0.785714)
+shape = SubResource("RectangleShape2D_d1cvu")
