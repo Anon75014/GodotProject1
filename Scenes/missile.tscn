@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciua535p52tml"]
+[gd_scene load_steps=4 format=3 uid="uid://ciua535p52tml"]
 
 [ext_resource type="Texture2D" uid="uid://cet51f1t5jy3l" path="res://Assets/Main ship weapon - Projectile - Auto cannon bullet.png" id="1_8ime3"]
+[ext_resource type="Script" path="res://Scenes/missile.gd" id="1_xg626"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1cvu"]
 size = Vector2(8.57143, 13.2045)
 
 [node name="Missile" type="Area2D"]
+script = ExtResource("1_xg626")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -17,3 +19,7 @@ texture = ExtResource("1_8ime3")
 position = Vector2(0.153846, -0.187499)
 scale = Vector2(0.897436, 0.785714)
 shape = SubResource("RectangleShape2D_d1cvu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

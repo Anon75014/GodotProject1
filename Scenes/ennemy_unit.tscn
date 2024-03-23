@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmoin"]
 radius = 15.0
 
-[node name="EnnemyUnit" type="Area2D"]
+[node name="EnnemyUnit" type="StaticBody2D" groups=["EnnemyUnits"]]
 position = Vector2(4, -203)
 script = ExtResource("1_bswv0")
 

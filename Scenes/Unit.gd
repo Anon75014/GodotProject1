@@ -1,7 +1,7 @@
 extends Area2D
 
 # Speed of the spaceship movement in units per second.
-var speed = 100
+var speed = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

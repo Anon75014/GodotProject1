@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ugvtdjsxful"]
+[gd_scene load_steps=5 format=3 uid="uid://c3ugvtdjsxful"]
 
 [ext_resource type="Script" path="res://Scenes/Unit.gd" id="1_1v2mc"]
 [ext_resource type="Texture2D" uid="uid://daelplos30ehe" path="res://Assets/Main Ship - Base - Full health.png" id="2_n080q"]
-[ext_resource type="Script" path="res://Scenes/Cannon.gd" id="3_ob1p6"]
-[ext_resource type="PackedScene" uid="uid://ciua535p52tml" path="res://Scenes/missile.tscn" id="4_pxfuf"]
+[ext_resource type="PackedScene" uid="uid://qp23lgogvbwq" path="res://Scenes/Cannon.tscn" id="3_gb0dp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_775fu"]
 size = Vector2(30, 26)
 
-[node name="Unit" type="Area2D"]
+[node name="Unit" type="Area2D" groups=["Units"]]
 script = ExtResource("1_1v2mc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,7 +17,5 @@ texture = ExtResource("2_n080q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_775fu")
 
-[node name="Cannon" type="Node2D" parent="."]
-position = Vector2(0, -14)
-script = ExtResource("3_ob1p6")
-missile_scene = ExtResource("4_pxfuf")
+[node name="Cannon" parent="." instance=ExtResource("3_gb0dp")]
+position = Vector2(0, -1)
