@@ -12,9 +12,7 @@ func _ready():
 	
 func _physics_process(_delta):
 	if target != null:
-		# Assuming 'target' has a 'velocity' property that is a Vector2.
-		# If 'speed' is just a scalar value, replace 'target.velocity' with 'Vector2(0, target.speed)'
-		var prediction_time := 0.5 # Adjust this as necessary
+		var prediction_time := 0.5
 		# Calculate the predicted vertical movement as a Vector2.
 		# Assuming downward movement, hence Vector2(0, speed).
 		var predicted_movement: Vector2 = Vector2(0, target.speed * prediction_time)
