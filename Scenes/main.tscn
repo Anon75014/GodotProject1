@@ -9,11 +9,13 @@ position = Vector2(241, 1096)
 [node name="Unit" parent="." instance=ExtResource("1_6demq")]
 position = Vector2(3, 191)
 
-[node name="EnnemyUnit" parent="." instance=ExtResource("2_f1lrb")]
-position = Vector2(49, -69)
-
 [node name="Unit2" parent="." instance=ExtResource("1_6demq")]
 position = Vector2(-51, 193)
+
+[node name="EnnemyUnit" parent="." instance=ExtResource("2_f1lrb")]
+position = Vector2(30, -142)
+
+[node name="EnnemyUnit2" parent="." instance=ExtResource("2_f1lrb")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-3, 3)

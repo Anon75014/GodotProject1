@@ -1,16 +1,17 @@
 extends Node2D
 @export var missile: PackedScene = null
 var target: Node2D = null
+var angle_for_shooting: float = 0
 @onready var rayCast = $RayCast2D
 @onready var reloadTimer = $RayCast2D/ReloadTimer
 
 func _ready():
 	await get_tree().process_frame
-	print($RayCast2D)  # Check if this prints an error
-	print($RayCast2D/ReloadTimer)  # Check if this prints an error
 	target = find_target()
 	
 func _physics_process(_delta):
+	if target == null or not target.is_inside_tree():
+		target = find_target()
 	if target != null:
 		var prediction_time := 0.5
 		# Calculate the predicted vertical movement as a Vector2.
@@ -20,14 +21,15 @@ func _physics_process(_delta):
 		# Calculate the predicted position by adding the current position to the predicted movement.
 		var predicted_position: Vector2 = target.global_position + predicted_movement
 
-		# Now aim the raycast at the predicted position instead of the current position
-		var angle_to_target: float = global_position.direction_to(predicted_position).angle()
-		rayCast.global_rotation = angle_to_target
+		# Aim the raycast at the ennemy position for collision
+		var angle_to_target: float = global_position.direction_to(target.global_position).angle()
+		rayCast.rotation = angle_to_target
+		# But aim the missile at the predicted position instead of the current position
+		angle_for_shooting = global_position.direction_to(predicted_position).angle()
 		
-		if reloadTimer.is_stopped():
-			shoot()
-	else:
-		print("target is null")
+		if rayCast.is_colliding() and rayCast.get_collider().is_in_group("EnnemyUnits"):
+			if reloadTimer.is_stopped():
+				shoot()
 
 func shoot():
 	print("PEW")
@@ -36,24 +38,25 @@ func shoot():
 	if missile:
 		var missile_instance: Node2D = missile.instantiate()
 		if missile_instance:
-			print("Missile instance")
 			get_tree().root.add_child(missile_instance)
 			missile_instance.global_position = global_position
-			missile_instance.global_rotation = rayCast.global_rotation
-		else:
-			print("Missile instance is null. Is the PackedScene loaded correctly?")
-		
+			missile_instance.global_rotation = angle_for_shooting
 	reloadTimer.start()
 
-func find_target():
-	var new_target: Node2D = null
-	print("finding target")
+func find_target() -> Node2D:
+	var closest_target: Node2D = null
+	var closest_distance: float = INF  # Set to infinity initially
+
+	for enemy in get_tree().get_nodes_in_group("EnnemyUnits"):
+		var distance_to_enemy = global_position.distance_to(enemy.global_position)
+		if distance_to_enemy < closest_distance:
+			closest_distance = distance_to_enemy
+			closest_target = enemy
+
+	if closest_target:
+		print("Closest target found")
 	
-	if get_tree().has_group("EnnemyUnits"):
-		new_target = get_tree().get_nodes_in_group("EnnemyUnits")[0]
-		print("found target")
-	
-	return new_target
+	return closest_target
 
 func _on_ReloadTimer_timeout():
 	rayCast.enabled = true
