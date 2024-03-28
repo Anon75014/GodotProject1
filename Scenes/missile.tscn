@@ -11,16 +11,19 @@ script = ExtResource("1_xg626")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -2.98023e-08)
+rotation = 1.56465
 scale = Vector2(0.75, 0.59375)
 texture = ExtResource("1_8ime3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.153846, -0.187499)
+position = Vector2(1.49012e-08, 0)
+rotation = 1.56938
 scale = Vector2(0.897436, 0.785714)
 shape = SubResource("RectangleShape2D_d1cvu")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(1, 0.95)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

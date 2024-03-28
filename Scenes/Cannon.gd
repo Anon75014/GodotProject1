@@ -17,11 +17,9 @@ func _physics_process(_delta):
 		# Calculate the predicted vertical movement as a Vector2.
 		# Assuming downward movement, hence Vector2(0, speed).
 		var predicted_movement: Vector2 = Vector2(0, target.speed * prediction_time)
-
 		# Calculate the predicted position by adding the current position to the predicted movement.
 		var predicted_position: Vector2 = target.global_position + predicted_movement
-
-		# Aim the raycast at the ennemy position for collision
+		# Aim the raycast at the ennemy position for detection
 		var angle_to_target: float = global_position.direction_to(target.global_position).angle()
 		rayCast.rotation = angle_to_target
 		# But aim the missile at the predicted position instead of the current position

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://drvah02ciygag"]
+
+[ext_resource type="Script" path="res://Scenes/MapGenerator.gd" id="1_8cdh5"]
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[node name="MapGenerator" type="Node2D" parent="."]
+script = ExtResource("1_8cdh5")
