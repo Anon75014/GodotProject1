@@ -13,10 +13,22 @@ position = Vector2(3, 191)
 [node name="Unit2" parent="." instance=ExtResource("1_tdq7c")]
 position = Vector2(-51, 193)
 
+[node name="Unit3" parent="." instance=ExtResource("1_tdq7c")]
+position = Vector2(158.191, 184.573)
+
+[node name="Unit4" parent="." instance=ExtResource("1_tdq7c")]
+position = Vector2(225.615, 183.075)
+
 [node name="EnnemyUnit" parent="." instance=ExtResource("2_t07kw")]
 position = Vector2(30, -142)
 
 [node name="EnnemyUnit2" parent="." instance=ExtResource("2_t07kw")]
+
+[node name="EnnemyUnit3" parent="." instance=ExtResource("2_t07kw")]
+position = Vector2(48.815, -207.983)
+
+[node name="EnnemyUnit4" parent="." instance=ExtResource("2_t07kw")]
+position = Vector2(27.8387, -269.414)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1

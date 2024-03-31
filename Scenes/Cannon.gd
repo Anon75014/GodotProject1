@@ -30,7 +30,7 @@ func _physics_process(_delta):
 				shoot()
 
 func shoot():
-	print("PEW")
+	print(get_parent().name, " : PEW")
 	rayCast.enabled = false
 	
 	if missile:
@@ -52,7 +52,7 @@ func find_target() -> Node2D:
 			closest_target = enemy
 
 	if closest_target:
-		print("Closest target found")
+		print(get_parent().name, " : Closest target found : ", closest_target.name)
 	
 	return closest_target
 

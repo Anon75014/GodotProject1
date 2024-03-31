@@ -18,4 +18,5 @@ func take_damage(amount):
 		die()
 
 func die():
+	print(name, " : Ouch...")
 	queue_free()  # For now, just remove the enemy from the scene.

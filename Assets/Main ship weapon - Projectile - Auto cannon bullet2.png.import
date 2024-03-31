@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daelplos30ehe"
-path="res://.godot/imported/Main Ship - Base - Full health.png-f96de079a3d51a47b8163eea286e4871.ctex"
+uid="uid://d0q4jliu5r7e5"
+path="res://.godot/imported/Main ship weapon - Projectile - Auto cannon bullet2.png-ea130aa910a75f380fe2f1690242dee8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Main Ship - Base - Full health.png"
-dest_files=["res://.godot/imported/Main Ship - Base - Full health.png-f96de079a3d51a47b8163eea286e4871.ctex"]
+source_file="res://Assets/Main ship weapon - Projectile - Auto cannon bullet2.png"
+dest_files=["res://.godot/imported/Main ship weapon - Projectile - Auto cannon bullet2.png-ea130aa910a75f380fe2f1690242dee8.ctex"]
 
 [params]
 
