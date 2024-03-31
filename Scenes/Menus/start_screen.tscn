@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mx752yu437xb"]
 
 [ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="1_4bvvv"]
-[ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_7imj4"]
+[ext_resource type="Script" path="res://Scenes/Menus/start_screen.gd" id="1_7imj4"]
 
 [node name="Start_Screen" type="CanvasLayer"]
 script = ExtResource("1_7imj4")
@@ -10,10 +10,10 @@ script = ExtResource("1_7imj4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 123.0
-offset_top = 175.0
-offset_right = -99.0
-offset_bottom = -31.0
+offset_left = 110.0
+offset_top = 173.0
+offset_right = -112.0
+offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -39,6 +39,8 @@ texture = ExtResource("1_4bvvv")
 
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../HBoxContainer2/Play2Button")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/Play2Button")
 theme_override_font_sizes/font_size = 30
 text = "NEW GAME"
 
@@ -51,10 +53,30 @@ size_flags_vertical = 4
 layout_mode = 2
 texture = ExtResource("1_4bvvv")
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Play2Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/PlayButton")
+focus_neighbor_top = NodePath("../../HBoxContainer/PlayButton")
+focus_neighbor_right = NodePath("../../HBoxContainer3/MapButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/MapButton")
 theme_override_font_sizes/font_size = 30
 text = "NEW GAME 2"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_4bvvv")
+
+[node name="MapButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer2/Play2Button")
+focus_neighbor_top = NodePath("../../HBoxContainer2/Play2Button")
+theme_override_font_sizes/font_size = 30
+text = "NEW MAP"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 331.0
@@ -67,4 +89,5 @@ theme_override_font_sizes/font_size = 60
 text = "PONYO IN SPACE"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_play2_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Play2Button" to="." method="_on_play2_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/MapButton" to="." method="_on_map_button_pressed"]
