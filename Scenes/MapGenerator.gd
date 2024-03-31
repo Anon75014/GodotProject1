@@ -25,6 +25,20 @@ func generate_map() -> Array[Array]:
 	map_data = _generate_initial_grid()
 	var starting_points := _get_random_starting_points()
 	
+	for j in starting_points:
+		var current_j := j
+		for i in MAP_DEPTH - 1:
+			current_j = _setup_connection(i, current_j)
+	
+	var i := 0	
+	for row in map_data:
+		print("row %s" % i)
+		var used_systems = row.filter(
+			func(system: System): return system.next_systems.size() > 0
+		)
+		print(used_systems)
+		i+=1
+	
 	return []
 
 func _generate_initial_grid() -> Array[Array]:
@@ -63,3 +77,33 @@ func _get_random_starting_points() -> Array[int]:
 			y_coordinates.append(starting_point)
 			
 	return y_coordinates
+	
+func _setup_connection(i: int, j: int) -> int:
+	var next_system: System
+	var current_system := map_data[i][j] as System
+		
+	while not next_system or _would_cross_existing_path(i, j, next_system):
+		var random_j := clampi(randi_range(j-1, j+1), 0, MAP_WIDTH-1)
+		next_system = map_data[i+1][random_j]
+	current_system.next_systems.append(next_system)
+	return next_system.column
+	
+func _would_cross_existing_path(i: int, j:int, system:System) -> bool:
+	var left_neighbour: System
+	var right_neighbour: System
+	
+	if j>0:
+		left_neighbour = map_data[i][j-1]
+	if j<MAP_WIDTH-1:
+		right_neighbour = map_data[i][j+1]
+		
+	if right_neighbour and system.column>j:
+		for next_system: System in right_neighbour.next_systems:
+			if next_system.column < system.column:
+				return true
+				
+	if left_neighbour and system.column > system.column:
+		for next_system: System in left_neighbour.next_systems:
+			if next_system.column > system.column:
+				return true
+	return false
