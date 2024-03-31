@@ -42,6 +42,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "NEW GAME"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_4bvvv")
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "NEW GAME 2"
+
 [node name="Label" type="Label" parent="."]
 offset_left = 331.0
 offset_top = 31.0
@@ -53,3 +67,4 @@ theme_override_font_sizes/font_size = 60
 text = "PONYO IN SPACE"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_play2_button_pressed"]
