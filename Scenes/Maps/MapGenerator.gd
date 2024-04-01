@@ -1,14 +1,14 @@
 class_name MapGenerator
 extends Node
 
-const X_DIST := 30
-const Y_DIST := 25
+const X_DIST := 60
+const Y_DIST := 50
 const PLACEMENT_RANDOMNESS := 5
 const MAP_DEPTH := 15
 const MAP_WIDTH := 7
 const PATHS := 6
 const ENNEMY_WEIGHT := 10
-const NEUTRAL_WEIGHT := 6.5
+const NEUTRAL_WEIGHT := 8
 
 var random_system_type_weights = {
 	System.Type.ENNEMY: 0.0,
