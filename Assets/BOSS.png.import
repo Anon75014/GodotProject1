@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4bbujo7q7mvm"
-path="res://.godot/imported/Starfield_01-1024x1024.png-aef372a927074fe59cb9f0a6a1a9e133.ctex"
+uid="uid://c07lhfbd8hc18"
+path="res://.godot/imported/BOSS.png-3a46ae5b74b36de8080087a550517303.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Starfield_01-1024x1024.png"
-dest_files=["res://.godot/imported/Starfield_01-1024x1024.png-aef372a927074fe59cb9f0a6a1a9e133.ctex"]
+source_file="res://Assets/BOSS.png"
+dest_files=["res://.godot/imported/BOSS.png-3a46ae5b74b36de8080087a550517303.ctex"]
 
 [params]
 

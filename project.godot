@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Menus/start_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[layer_names]
+
+2d_physics/layer_4="Map"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

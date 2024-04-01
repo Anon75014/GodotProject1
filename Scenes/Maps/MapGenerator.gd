@@ -18,8 +18,6 @@ var random_system_type_weights = {
 var random_system_type_total_weight := 0
 var map_data: Array[Array]
 
-func _ready() -> void:
-	generate_map()
 
 func generate_map() -> Array[Array]:
 	map_data = _generate_initial_grid()
@@ -29,6 +27,10 @@ func generate_map() -> Array[Array]:
 		var current_j := j
 		for i in MAP_DEPTH - 1:
 			current_j = _setup_connection(i, current_j)
+			
+	_setup_boss_system()
+	_setup_random_system_weights()
+	_setup_system_types()
 	
 	var i := 0	
 	for row in map_data:
@@ -107,3 +109,85 @@ func _would_cross_existing_path(i: int, j:int, system:System) -> bool:
 			if next_system.column > system.column:
 				return true
 	return false
+	
+func _setup_boss_system() -> void:
+	var middle := floori(MAP_WIDTH*0.5)
+	var boss_system := map_data[MAP_DEPTH-1][middle] as System
+	
+	for j in MAP_WIDTH:
+		var current_system = map_data[MAP_DEPTH-2][j] as System
+		if current_system.next_systems:
+			current_system.next_systems = [] as Array[System]
+			current_system.next_systems.append(boss_system)
+	
+	boss_system.type = System.Type.BOSS
+	
+func _setup_random_system_weights() -> void:
+	random_system_type_weights[System.Type.ENNEMY] = ENNEMY_WEIGHT
+	random_system_type_weights[System.Type.NEUTRAL] = ENNEMY_WEIGHT+NEUTRAL_WEIGHT
+	random_system_type_total_weight = random_system_type_weights[System.Type.NEUTRAL]
+
+func _setup_system_types() -> void:
+	# first system is always ennemy
+	for system: System in map_data[0]:
+		if system.next_systems.size() > 0:
+			system.type = System.Type.ENNEMY
+			
+	# Neutral before boss:
+	for system: System in map_data[MAP_DEPTH-2]:
+		if system.next_systems.size() > 0:
+			system.type = System.Type.NEUTRAL
+	
+	# rest of rooms
+	for current_system in map_data:
+		for system: System in current_system:
+			for next_system: System in system.next_systems:
+				if next_system.type == System.Type.NOT_ASSIGNED:
+					_set_system_randomly(next_system)
+
+func _set_system_randomly(system_to_set: System) -> void:
+	var consecutive_neutral := true
+	var neutral_on_13 := true
+	var type_candidate: System.Type
+	
+	while consecutive_neutral or neutral_on_13:
+		type_candidate = _get_random_system_type_by_weight()
+		var is_neutral := type_candidate == System.Type.NEUTRAL
+		var has_neutral_parent := _system_has_parent_of_type(system_to_set, System.Type.NEUTRAL)
+		
+		consecutive_neutral = is_neutral and has_neutral_parent
+		neutral_on_13 = is_neutral and system_to_set.row == 12
+	
+	system_to_set.type = type_candidate
+
+func _system_has_parent_of_type(system: System, type: System.Type) -> bool:
+	var parents: Array[System] = []
+	# left parent
+	if system.column > 0 and system.row > 0:
+		var parent_candidate := map_data[system.row-1][system.column-1] as System
+		if parent_candidate.next_systems.has(system):
+			parents.append(parent_candidate)
+	# parent below
+	if system.row > 0:
+		var parent_candidate := map_data[system.row-1][system.column] as System
+		if parent_candidate.next_systems.has(system):
+			parents.append(parent_candidate)
+	#right parent
+	if system.column > MAP_WIDTH-1 and system.row > 0:
+		var parent_candidate := map_data[system.row-1][system.column+1] as System
+		if parent_candidate.next_systems.has(system):
+			parents.append(parent_candidate)
+	
+	for parent: System in parents:
+		if parent.type == type:
+			return true
+	return false
+	
+func _get_random_system_type_by_weight() -> System.Type:
+	var roll := randf_range(0.0, random_system_type_total_weight)
+	
+	for type: System.Type in random_system_type_weights:
+		if random_system_type_weights[type] > roll:
+			return type
+	
+	return System.Type.ENNEMY
