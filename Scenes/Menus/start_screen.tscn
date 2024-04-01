@@ -60,7 +60,7 @@ focus_neighbor_top = NodePath("../../HBoxContainer/PlayButton")
 focus_neighbor_right = NodePath("../../HBoxContainer3/MapButton")
 focus_neighbor_bottom = NodePath("../../HBoxContainer3/MapButton")
 theme_override_font_sizes/font_size = 30
-text = "NEW GAME 2"
+text = "SIMULATION"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

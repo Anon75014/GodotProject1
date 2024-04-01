@@ -9,7 +9,7 @@ func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Maps/Fight_node_1.tscn")
 
 func _on_play2_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Maps/Fight_node_2.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menus/FightMenu.tscn")
 
 func _on_map_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Maps/map.tscn")
