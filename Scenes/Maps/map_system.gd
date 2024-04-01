@@ -17,6 +17,15 @@ const ICONS := {
 var available := false : set = set_available
 var system: System : set = set_system
 
+func _ready() -> void:
+	var test_system := System.new()
+	test_system.type = System.Type.NEUTRAL
+	test_system.position = Vector2(100,100)
+	system = test_system
+	
+	await get_tree().create_timer(3).timeout
+	available = true
+
 func set_available(new_value: bool) -> void:
 	available = new_value
 	
@@ -32,5 +41,15 @@ func set_system(new_data: System) -> void:
 	sprite_2d.texture = ICONS[system.type][0]
 	sprite_2d.scale = ICONS[system.type][1]
 
-func _on_input_event(viewport, event, shape_idx):
-	pass # Replace with function body.
+func show_selected() -> void:
+	line_2d.modulate = Color.WHITE
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if not available or not event.is_action_pressed("left_mouse"):
+		return
+	
+	system.selected = true
+	animation_player.play("Select")
+	
+func _on_map_system_selected() -> void:
+	selected.emit(system)
