@@ -104,7 +104,7 @@ func _would_cross_existing_path(i: int, j:int, system:System) -> bool:
 			if next_system.column < system.column:
 				return true
 				
-	if left_neighbour and system.column > system.column:
+	if left_neighbour and system.column < j:
 		for next_system: System in left_neighbour.next_systems:
 			if next_system.column > system.column:
 				return true
