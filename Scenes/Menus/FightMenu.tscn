@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1inc3byq7gn8"]
+[gd_scene load_steps=3 format=3 uid="uid://4oviabx61rob"]
 
 [ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="1_7j6av"]
 [ext_resource type="Script" path="res://Scenes/Menus/FightMenu.gd" id="1_r3mvb"]

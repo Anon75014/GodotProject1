@@ -21,7 +21,7 @@ func _ready() -> void:
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.MAP_DEPTH-1)
 	
 	generate_new_map()
-	unlock_floor(0)
+	unlock_row(0)
 
 # Processes keyboard events
 func _input(event: InputEvent) -> void:
@@ -42,7 +42,6 @@ func generate_new_map() -> void:
 	create_map()
 
 func create_map() -> void:
-	print(map_data)
 	for current_system: Array in map_data:
 		for system: System in current_system:
 			if system.next_systems.size() > 0:
@@ -55,9 +54,9 @@ func create_map() -> void:
 	visuals.position.x = (get_viewport_rect().size.x - map_width_pixels) / 2
 	visuals.position.y = get_viewport_rect().size.y / 2
 
-func unlock_floor(which_system: int = systems_explored) -> void:
+func unlock_row(which_row: int = systems_explored) -> void:
 	for map_system: MapSystem in systems.get_children():
-		if map_system.system.row == which_system:
+		if map_system.system.row == which_row:
 			map_system.available = true
 
 func unlock_next_systems() -> void:
@@ -77,7 +76,7 @@ func _spawn_system(system: System) -> void:
 	var new_map_system := MAP_SYSTEM.instantiate() as MapSystem
 	systems.add_child(new_map_system)
 	new_map_system.system = system
-	new_map_system.selected.connect(_on_map_selected)
+	new_map_system.selected.connect(_on_map_system_selected)
 	_connect_lines(system)
 	
 	if system.selected and system.row < systems_explored:
@@ -93,7 +92,7 @@ func _connect_lines(system: System) -> void:
 		new_map_line.add_point(next.position)
 		lines.add_child(new_map_line)
 		
-func _on_map_selected(system: System) -> void:
+func _on_map_system_selected(system: System) -> void:
 	for map_system: MapSystem in systems.get_children():
 		if map_system.system.row == system.row:
 			map_system.available = false

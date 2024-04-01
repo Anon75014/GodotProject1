@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://drvah02ciygag"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/MapGenerator.gd" id="1_8cdh5"]
+[ext_resource type="Script" path="res://Scenes/Maps/map.gd" id="1_pkjh6"]
+
+[sub_resource type="Gradient" id="Gradient_hmdrp"]
+colors = PackedColorArray(0.20871, 0.20871, 0.20871, 1, 0.0059166, 0.00309588, 1.31608e-09, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_drmku"]
+gradient = SubResource("Gradient_hmdrp")
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_pkjh6")
+
+[node name="MapGenerator" type="Node2D" parent="."]
+script = ExtResource("1_8cdh5")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Lines" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Systems" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(576, 324)
+
+[node name="MapBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="MapBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_drmku")
