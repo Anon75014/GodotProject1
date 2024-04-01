@@ -18,8 +18,10 @@ script = ExtResource("1_8cdh5")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Lines" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
 
 [node name="Systems" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(576, 324)

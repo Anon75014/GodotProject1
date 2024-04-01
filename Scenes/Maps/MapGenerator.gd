@@ -32,16 +32,7 @@ func generate_map() -> Array[Array]:
 	_setup_random_system_weights()
 	_setup_system_types()
 	
-	var i := 0	
-	for row in map_data:
-		print("row %s" % i)
-		var used_systems = row.filter(
-			func(system: System): return system.next_systems.size() > 0
-		)
-		print(used_systems)
-		i+=1
-	
-	return []
+	return map_data
 
 func _generate_initial_grid() -> Array[Array]:
 	var result: Array[Array] = []
@@ -99,7 +90,7 @@ func _would_cross_existing_path(i: int, j:int, system:System) -> bool:
 	if j<MAP_WIDTH-1:
 		right_neighbour = map_data[i][j+1]
 		
-	if right_neighbour and system.column>j:
+	if right_neighbour and system.column > j:
 		for next_system: System in right_neighbour.next_systems:
 			if next_system.column < system.column:
 				return true
