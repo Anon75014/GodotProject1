@@ -1,18 +1,20 @@
 extends Node2D
 
+var teamSize: int = 10
+var enemyTeamSize: int = teamSize
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	for i in range(5):
+	for i in range(teamSize):
 		var unit = load("res://Scenes/Units/unit.tscn").instantiate()
-		unit.position.x = i * 50
+		unit.position.x = -300 + i * 50
 		unit.position.y = 300
 		unit.name = "Unit%s" % (i+1)
 		add_child(unit)
-	for i in range(5):
+	for i in range(enemyTeamSize):
 		var unit = load("res://Scenes/Units/enemy_unit.tscn").instantiate()
-		unit.position.x = i * 50 + 100
+		unit.position.x = -300 + i * 50 + 100
 		unit.position.y = -300
 		unit.name = "EnemyUnit%s" % (i+1)
 		add_child(unit)

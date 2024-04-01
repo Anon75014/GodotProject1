@@ -25,7 +25,8 @@ func _physics_process(_delta):
 		# But aim the missile at the predicted position instead of the current position
 		angle_for_shooting = global_position.direction_to(predicted_position).angle()
 		
-		if rayCast.is_colliding() and rayCast.get_collider().is_in_group("EnnemyUnits"):
+		if rayCast.is_colliding() and rayCast.get_collider() \
+			and rayCast.get_collider().is_in_group("EnnemyUnits"):
 			if reloadTimer.is_stopped():
 				shoot()
 

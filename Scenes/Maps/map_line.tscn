@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://da2a27spjcbxg"]
+[gd_scene load_steps=3 format=3 uid="uid://da2a27spjcbxg"]
+
+[ext_resource type="PackedScene" uid="uid://bh4lwwaeuwbid" path="res://Scenes/Maps/map_system.tscn" id="1_t0x3s"]
 
 [sub_resource type="Curve" id="Curve_f4bf2"]
 _data = [Vector2(0.173684, 0.175824), 0.0, 0.0, 0, 0, Vector2(0.378947, 0.912088), -1.32234, 0.0, 0, 0]
@@ -7,3 +9,5 @@ point_count = 2
 [node name="MapLine" type="Line2D"]
 width_curve = SubResource("Curve_f4bf2")
 default_color = Color(0.929412, 0.709804, 0.356863, 1)
+
+[node name="MapSystem" parent="." instance=ExtResource("1_t0x3s")]

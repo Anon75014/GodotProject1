@@ -16,8 +16,9 @@ func _on_body_entered(body):
 	print(get_parent().name, " : Hit: ", body.name)
 	if body.is_in_group("EnnemyUnits"):
 		destroy()
-	if body.has_method("take_damage"):
-		body.take_damage(damage)
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+	# Removing hitting allied units
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

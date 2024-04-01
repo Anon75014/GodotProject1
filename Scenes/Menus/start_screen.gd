@@ -1,8 +1,6 @@
 extends CanvasLayer
 
 
-var focusedButton: Button = null
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("MarginContainer/VBoxContainer/HBoxContainer/PlayButton").grab_focus()
