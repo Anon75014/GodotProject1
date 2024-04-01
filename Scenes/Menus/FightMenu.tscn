@@ -1,0 +1,141 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1inc3byq7gn8"]
+
+[ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="1_7j6av"]
+[ext_resource type="Script" path="res://Scenes/Menus/FightMenu.gd" id="1_r3mvb"]
+
+[node name="FightMenu" type="CanvasLayer"]
+script = ExtResource("1_r3mvb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 331.0
+offset_top = 31.0
+offset_right = 823.0
+offset_bottom = 114.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = "Fight Simulation"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_7j6av")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Allies "
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 65)
+layout_mode = 2
+focus_neighbor_right = NodePath("../../../VBoxContainer2/HBoxContainer/LineEdit")
+focus_neighbor_bottom = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
+focus_next = NodePath("../../../VBoxContainer2/HBoxContainer/LineEdit")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_7j6av")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Enemies "
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(250, 65)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../VBoxContainer/HBoxContainer/LineEdit")
+focus_neighbor_top = NodePath("../../../VBoxContainer/HBoxContainer/LineEdit")
+focus_neighbor_right = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
+focus_neighbor_bottom = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
+focus_next = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
+focus_previous = NodePath("../../../VBoxContainer/HBoxContainer/LineEdit")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_7j6av")
+
+[node name="PlayButton" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/LineEdit")
+focus_neighbor_top = NodePath("../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/LineEdit")
+focus_neighbor_right = NodePath("../../HBoxContainer2/BackButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/BackButton")
+focus_next = NodePath("../../HBoxContainer2/BackButton")
+focus_previous = NodePath("../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/LineEdit")
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_7j6av")
+
+[node name="BackButton" type="Button" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/PlayButton")
+focus_neighbor_top = NodePath("../../HBoxContainer/PlayButton")
+focus_previous = NodePath("../../HBoxContainer/PlayButton")
+theme_override_font_sizes/font_size = 30
+text = "BACK"
