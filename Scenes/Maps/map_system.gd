@@ -17,14 +17,6 @@ const ICONS := {
 var available := false : set = set_available
 var system: System : set = set_system
 
-func _ready() -> void:
-	var test_system := System.new()
-	test_system.type = System.Type.NEUTRAL
-	test_system.position = Vector2(100,100)
-	system = test_system
-	
-	await get_tree().create_timer(3).timeout
-	available = true
 
 func set_available(new_value: bool) -> void:
 	available = new_value
