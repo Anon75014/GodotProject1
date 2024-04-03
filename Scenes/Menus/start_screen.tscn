@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://mx752yu437xb"]
+[gd_scene load_steps=7 format=3 uid="uid://mx752yu437xb"]
 
 [ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="1_4bvvv"]
 [ext_resource type="Script" path="res://Scenes/Menus/start_screen.gd" id="1_7imj4"]
+[ext_resource type="Texture2D" uid="uid://cdmen3qkb6oid" path="res://Assets/ponyo.png" id="2_vgv3n"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nqanq"]
 load_path = "res://.godot/imported/Starfield_background.png-ca1ab1065d46aafb518bb93653d1a5c7.ctex"
@@ -27,41 +28,54 @@ texture = SubResource("CompressedTexture2D_nqanq")
 
 [node name="ShipTextureRect" type="TextureRect" parent="TextureRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = -176.0
-offset_right = 87.0
-offset_bottom = 124.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 369.0
+offset_top = 369.0
+offset_right = 669.0
+offset_bottom = 669.0
 rotation = 2.41519
 texture = SubResource("CanvasTexture_vor58")
 
 [node name="ShipTextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.999
+offset_top = 574.0
+offset_right = 133.0
+offset_bottom = 874.0
+grow_horizontal = 0
+rotation = 4.0159
+texture = SubResource("CanvasTexture_vor58")
+
+[node name="PonyoTextureRect" type="TextureRect" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 413.0
-offset_top = 21.0
-offset_right = 713.0
-offset_bottom = 321.0
+offset_left = 168.0
+offset_top = 120.0
+offset_right = 768.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 4.0159
-texture = SubResource("CanvasTexture_vor58")
+rotation = 3.1422
+scale = Vector2(0.595482, 0.550025)
+texture = ExtResource("2_vgv3n")
+flip_h = true
+flip_v = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 331.0
-offset_top = 31.0
-offset_right = 823.0
-offset_bottom = 114.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_top = 64.0
+offset_right = 246.0
+offset_bottom = 147.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 60
