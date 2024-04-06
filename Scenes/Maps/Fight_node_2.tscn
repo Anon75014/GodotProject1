@@ -11,15 +11,14 @@ z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -579.0
-offset_top = -512.0
-offset_right = 578.0
-offset_bottom = 512.0
+offset_top = -188.0
+offset_right = 1157.0
+offset_bottom = 836.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_krc31")
 metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="TextureRect"]
-position = Vector2(576, 515)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

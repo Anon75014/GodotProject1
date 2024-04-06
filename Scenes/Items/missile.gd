@@ -1,7 +1,7 @@
 extends Area2D
 
 const RIGHT = Vector2.RIGHT
-var SPEED = 150
+var SPEED = 200
 var damage = 25
 
 
@@ -13,7 +13,7 @@ func destroy():
 	queue_free()
 
 func _on_body_entered(body):
-	print(get_parent().name, " : Hit: ", body.name)
+	#print(get_parent().name, " : Hit: ", body.name)
 	if body.is_in_group("EnnemyUnits"):
 		destroy()
 		if body.has_method("take_damage"):

@@ -109,7 +109,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
 focus_neighbor_right = NodePath("../../../VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
-focus_neighbor_bottom = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
+focus_neighbor_bottom = NodePath("../../../../../BoxContainer/VBoxContainer/HBoxContainer/PlayButton")
 focus_next = NodePath("../../../VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
 focus_mode = 2
 value = 10.0
@@ -141,53 +141,56 @@ custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../VBoxContainer/HBoxContainer/AlliesSpinBox")
 focus_neighbor_top = NodePath("../../../VBoxContainer/HBoxContainer/AlliesSpinBox")
-focus_neighbor_right = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
-focus_neighbor_bottom = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
-focus_next = NodePath("../../../../../VBoxContainer2/HBoxContainer/PlayButton")
+focus_neighbor_right = NodePath("../../../../../BoxContainer/VBoxContainer/HBoxContainer/PlayButton")
+focus_neighbor_bottom = NodePath("../../../../../BoxContainer/VBoxContainer/HBoxContainer/PlayButton")
+focus_next = NodePath("../../../../../BoxContainer/VBoxContainer/HBoxContainer/PlayButton")
 focus_previous = NodePath("../../../VBoxContainer/HBoxContainer/AlliesSpinBox")
 focus_mode = 2
 value = 10.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -203.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 4
-alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_7j6av")
 
-[node name="PlayButton" type="Button" parent="VBoxContainer2/HBoxContainer"]
+[node name="PlayButton" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../../VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AlliesSpinBox")
-focus_neighbor_top = NodePath("../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
+focus_neighbor_left = NodePath("../../../../VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AlliesSpinBox")
+focus_neighbor_top = NodePath("../../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
 focus_neighbor_right = NodePath("../../HBoxContainer2/BackButton")
 focus_neighbor_bottom = NodePath("../../HBoxContainer2/BackButton")
 focus_next = NodePath("../../HBoxContainer2/BackButton")
-focus_previous = NodePath("../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
+focus_previous = NodePath("../../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
 theme_override_font_sizes/font_size = 30
 text = "PLAY"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("1_7j6av")
 
-[node name="BackButton" type="Button" parent="VBoxContainer2/HBoxContainer2"]
+[node name="BackButton" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../HBoxContainer/PlayButton")
 focus_neighbor_top = NodePath("../../HBoxContainer/PlayButton")
@@ -195,5 +198,5 @@ focus_previous = NodePath("../../HBoxContainer/PlayButton")
 theme_override_font_sizes/font_size = 30
 text = "BACK"
 
-[connection signal="pressed" from="VBoxContainer2/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/HBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
