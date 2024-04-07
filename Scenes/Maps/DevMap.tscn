@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv26iw0bf6elt"]
+
+[ext_resource type="Texture2D" uid="uid://d4bbujo7q7mvm" path="res://Assets/Starfield_background.png" id="1_86frn"]
+[ext_resource type="Script" path="res://Scenes/Maps/DevMap.gd" id="1_gnsgd"]
+[ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="2_cen5v"]
+[ext_resource type="PackedScene" uid="uid://bkr5giq1eah75" path="res://Scenes/Maps/Fight_node_2.tscn" id="3_igdm3"]
+
+[node name="DevMap" type="CanvasLayer"]
+script = ExtResource("1_gnsgd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_86frn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main2" parent="BoxContainer" instance=ExtResource("3_igdm3")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_cen5v")
+
+[node name="PlayButton" type="Button" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../../VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AlliesSpinBox")
+focus_neighbor_top = NodePath("../../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
+focus_neighbor_right = NodePath("../../HBoxContainer2/BackButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/BackButton")
+focus_next = NodePath("../../HBoxContainer2/BackButton")
+focus_previous = NodePath("../../../../VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/EnnemiesSpinBox")
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_cen5v")
+
+[node name="BackButton" type="Button" parent="HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/PlayButton")
+focus_neighbor_top = NodePath("../../HBoxContainer/PlayButton")
+focus_previous = NodePath("../../HBoxContainer/PlayButton")
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]

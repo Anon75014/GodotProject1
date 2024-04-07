@@ -37,7 +37,8 @@ func shoot():
 	if missile:
 		var missile_instance: Node2D = missile.instantiate()
 		if missile_instance:
-			get_tree().root.add_child(missile_instance)
+			#get_tree().root.add_child(missile_instance)
+			get_parent().get_parent().add_child(missile_instance)
 			missile_instance.global_position = global_position
 			missile_instance.global_rotation = angle_for_shooting
 	reloadTimer.start()
@@ -51,7 +52,7 @@ func find_target() -> Node2D:
 		if distance_to_enemy < closest_distance:
 			closest_distance = distance_to_enemy
 			closest_target = enemy
-
+	
 	#if closest_target:
 		#print(get_parent().name, " : Closest target found : ", closest_target.name)
 	

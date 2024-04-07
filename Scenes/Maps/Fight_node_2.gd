@@ -1,9 +1,11 @@
 extends Node2D
 
-var teamSize: int = 10
+var teamSize: int = 2
 var enemyTeamSize: int = teamSize
+var root: PackedScene
 
-func setup(alliesVal, ennemiesVal):
+func setup(root, alliesVal: int, ennemiesVal: int):
+	root = root
 	teamSize = alliesVal
 	enemyTeamSize = ennemiesVal
 	return self
@@ -11,7 +13,6 @@ func setup(alliesVal, ennemiesVal):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	print($"Camera2D".get_screen_center_position())
 	print(get_viewport_rect())
 	print(get_viewport_rect().get_center())
@@ -37,17 +38,17 @@ func _ready():
 	for i in range(teamSize):
 		var unit = load("res://Scenes/Units/unit.tscn").instantiate()
 		unit.position.x = BL.x + 1.5 * MARGIN + i * t_SPACING
-		unit.position.y = BL.y + MARGIN
+		unit.position.y = BL.y + MARGIN/2
 		unit.name = "Unit%s" % (i+1)
 		add_child(unit)
 	for i in range(enemyTeamSize):
 		var unit = load("res://Scenes/Units/enemy_unit.tscn").instantiate()
 		unit.position.x = TR.x - MARGIN - i * et_SPACING
-		unit.position.y = TR.y - MARGIN
+		unit.position.y = TR.y - MARGIN/2
 		unit.name = "EnemyUnit%s" % (i+1)
 		add_child(unit)
 		
-	#print_tree_pretty()
+	print_tree_pretty()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,4 +60,4 @@ func _process(_delta):
 func _input(_ev):
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().change_scene_to_file("res://Scenes/Menus/start_screen.tscn")
-		get_tree().root.remove_child(self)
+		queue_free()

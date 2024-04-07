@@ -97,56 +97,87 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
+[node name="BaseHBoxContainer" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/BaseHBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_4bvvv")
 
-[node name="PlayButton" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
+[node name="BasePlayButton" type="Button" parent="BoxContainer/VBoxContainer/BaseHBoxContainer"]
 layout_mode = 2
-focus_neighbor_right = NodePath("../../HBoxContainer2/Play2Button")
-focus_neighbor_bottom = NodePath("../../HBoxContainer2/Play2Button")
+focus_neighbor_left = NodePath("../../MapHBoxContainer/MapButton")
+focus_neighbor_top = NodePath("../../MapHBoxContainer/MapButton")
+focus_neighbor_right = NodePath("../../SimHBoxContainer/SimButton")
+focus_neighbor_bottom = NodePath("../../SimHBoxContainer/SimButton")
+focus_next = NodePath("../../SimHBoxContainer/SimButton")
+focus_previous = NodePath("../../MapHBoxContainer/MapButton")
 theme_override_font_sizes/font_size = 30
 text = "NEW GAME"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
+[node name="SimHBoxContainer" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/SimHBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_4bvvv")
 
-[node name="Play2Button" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="SimButton" type="Button" parent="BoxContainer/VBoxContainer/SimHBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../HBoxContainer/PlayButton")
-focus_neighbor_top = NodePath("../../HBoxContainer/PlayButton")
-focus_neighbor_right = NodePath("../../HBoxContainer3/MapButton")
-focus_neighbor_bottom = NodePath("../../HBoxContainer3/MapButton")
+focus_neighbor_left = NodePath("../../BaseHBoxContainer/BasePlayButton")
+focus_neighbor_top = NodePath("../../BaseHBoxContainer/BasePlayButton")
+focus_neighbor_right = NodePath("../../DevHBoxContainer/DevMapButton")
+focus_neighbor_bottom = NodePath("../../DevHBoxContainer/DevMapButton")
+focus_next = NodePath("../../DevHBoxContainer/DevMapButton")
+focus_previous = NodePath("../../BaseHBoxContainer/BasePlayButton")
 theme_override_font_sizes/font_size = 30
 text = "SIMULATION"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
+[node name="DevHBoxContainer" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/DevHBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_4bvvv")
 
-[node name="MapButton" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="DevMapButton" type="Button" parent="BoxContainer/VBoxContainer/DevHBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../HBoxContainer2/Play2Button")
-focus_neighbor_top = NodePath("../../HBoxContainer2/Play2Button")
+focus_neighbor_left = NodePath("../../SimHBoxContainer/SimButton")
+focus_neighbor_top = NodePath("../../SimHBoxContainer/SimButton")
+focus_neighbor_right = NodePath("../../MapHBoxContainer/MapButton")
+focus_neighbor_bottom = NodePath("../../MapHBoxContainer/MapButton")
+focus_next = NodePath("../../MapHBoxContainer/MapButton")
+focus_previous = NodePath("../../SimHBoxContainer/SimButton")
+theme_override_font_sizes/font_size = 30
+text = "DEV MAP"
+
+[node name="MapHBoxContainer" type="HBoxContainer" parent="BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/VBoxContainer/MapHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_4bvvv")
+
+[node name="MapButton" type="Button" parent="BoxContainer/VBoxContainer/MapHBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../DevHBoxContainer/DevMapButton")
+focus_neighbor_top = NodePath("../../DevHBoxContainer/DevMapButton")
+focus_neighbor_right = NodePath("../../BaseHBoxContainer/BasePlayButton")
+focus_neighbor_bottom = NodePath("../../BaseHBoxContainer/BasePlayButton")
+focus_next = NodePath("../../BaseHBoxContainer/BasePlayButton")
+focus_previous = NodePath("../../DevHBoxContainer/DevMapButton")
 theme_override_font_sizes/font_size = 30
 text = "NEW MAP"
 
-[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer2/Play2Button" to="." method="_on_play2_button_pressed"]
-[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer3/MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/BaseHBoxContainer/BasePlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/SimHBoxContainer/SimButton" to="." method="_on_sim_button_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/DevHBoxContainer/DevMapButton" to="." method="_on_devmap_button_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/MapHBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
