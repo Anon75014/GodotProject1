@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://4oviabx61rob"]
 
 [ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="1_7j6av"]
-[ext_resource type="Script" path="res://Scenes/Menus/FightMenu.gd" id="1_r3mvb"]
+[ext_resource type="Script" uid="uid://ctpbuecq25eid" path="res://Scenes/Menus/FightMenu.gd" id="1_r3mvb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_apjx2"]
 load_path = "res://.godot/imported/Starfield_background.png-ca1ab1065d46aafb518bb93653d1a5c7.ctex"

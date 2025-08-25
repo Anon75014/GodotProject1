@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3ugvtdjsxful"]
 
-[ext_resource type="Script" path="res://Scenes/Units/Unit.gd" id="1_1v2mc"]
+[ext_resource type="Script" uid="uid://4yi8jifpbkcc" path="res://Scenes/Units/Unit.gd" id="1_1v2mc"]
 [ext_resource type="Texture2D" uid="uid://daelplos30ehe" path="res://Assets/Main Ship - Base - Full health.png" id="2_n080q"]
 [ext_resource type="PackedScene" uid="uid://qp23lgogvbwq" path="res://Scenes/Items/Cannon.tscn" id="3_gb0dp"]
 

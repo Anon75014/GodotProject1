@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://drvah02ciygag"]
 
-[ext_resource type="Script" path="res://Scenes/Maps/MapGenerator.gd" id="1_8cdh5"]
-[ext_resource type="Script" path="res://Scenes/Maps/map.gd" id="1_pkjh6"]
+[ext_resource type="Script" uid="uid://c0m0bgtd1cw3v" path="res://Scenes/Maps/MapGenerator.gd" id="1_8cdh5"]
+[ext_resource type="Script" uid="uid://dgumbtsu0kc5v" path="res://Scenes/Maps/map.gd" id="1_pkjh6"]
 
 [sub_resource type="Gradient" id="Gradient_hmdrp"]
 colors = PackedColorArray(0.20871, 0.20871, 0.20871, 1, 0.0059166, 0.00309588, 1.31608e-09, 1)

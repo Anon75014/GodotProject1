@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkr5giq1eah75"]
 
-[ext_resource type="Script" path="res://Scenes/Maps/Fight_node_2.gd" id="1_v5h46"]
+[ext_resource type="Script" uid="uid://c8htdkaqmgepl" path="res://Scenes/Maps/Fight_node_2.gd" id="1_v5h46"]
 [ext_resource type="Texture2D" uid="uid://d4bbujo7q7mvm" path="res://Assets/Starfield_background.png" id="3_krc31"]
 
 [node name="main" type="Node2D"]

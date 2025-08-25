@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bv26iw0bf6elt"]
 
 [ext_resource type="Texture2D" uid="uid://d4bbujo7q7mvm" path="res://Assets/Starfield_background.png" id="1_86frn"]
-[ext_resource type="Script" path="res://Scenes/Maps/DevMap.gd" id="1_gnsgd"]
+[ext_resource type="Script" uid="uid://pyhftn1vxv5r" path="res://Scenes/Maps/DevMap.gd" id="1_gnsgd"]
 [ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="2_cen5v"]
 [ext_resource type="PackedScene" uid="uid://bkr5giq1eah75" path="res://Scenes/Maps/Fight_node_2.tscn" id="3_igdm3"]
 

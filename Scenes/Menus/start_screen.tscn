@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://mx752yu437xb"]
 
 [ext_resource type="Texture2D" uid="uid://cr3o8kaokil14" path="res://Assets/Panel Empty Green.png" id="1_4bvvv"]
-[ext_resource type="Script" path="res://Scenes/Menus/start_screen.gd" id="1_7imj4"]
+[ext_resource type="Script" uid="uid://ka6xcxo210cu" path="res://Scenes/Menus/start_screen.gd" id="1_7imj4"]
 [ext_resource type="Texture2D" uid="uid://cdmen3qkb6oid" path="res://Assets/ponyo.png" id="2_vgv3n"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nqanq"]

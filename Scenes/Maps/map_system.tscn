@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bh4lwwaeuwbid"]
 
-[ext_resource type="Script" path="res://Scenes/Maps/map_system.gd" id="1_brdlo"]
+[ext_resource type="Script" uid="uid://dbcqrx6gidchy" path="res://Scenes/Maps/map_system.gd" id="1_brdlo"]
 [ext_resource type="Texture2D" uid="uid://crxgn2caqdw8g" path="res://Assets/ENNEMY.png" id="1_gvuqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d74h3"]
@@ -82,9 +82,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6t4c"]
 _data = {
-"Highlight": SubResource("Animation_xl0i0"),
-"RESET": SubResource("Animation_hilgi"),
-"Select": SubResource("Animation_mc2os")
+&"Highlight": SubResource("Animation_xl0i0"),
+&"RESET": SubResource("Animation_hilgi"),
+&"Select": SubResource("Animation_mc2os")
 }
 
 [node name="MapSystem" type="Area2D"]
